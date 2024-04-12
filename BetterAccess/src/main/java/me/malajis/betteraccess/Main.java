@@ -12,7 +12,7 @@ public final class Main extends JavaPlugin {
         //启动文本
         System.out.println(yellow+"BetterAccess 已经成功加载至服务器"+reset);
         //注册事件监听器
-        Bukkit.getPluginManager().registerEvents(new JoinListener(),this);
+        Bukkit.getPluginManager().registerEvents(new AccessListener(),this);
         //注册命令类
         Bukkit.getPluginCommand("bareload").setExecutor(new Command());
         //生成配置文件
