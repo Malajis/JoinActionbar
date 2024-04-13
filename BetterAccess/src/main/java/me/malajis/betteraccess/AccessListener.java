@@ -15,8 +15,14 @@ public class AccessListener implements Listener {
     public void onJoin(PlayerJoinEvent j) {
         j.setJoinMessage(null);
         Player p = j.getPlayer();
+        String message = "JoinMessage";
+        if (p.hasPermission("betteraccess.op")) {
+            message = "JoinMessageOP";
+        }else if(p.hasPermission("betteraccess.vip")){
+            message = "JoinMessageVIP";
+        }
         for (Player online : Bukkit.getOnlinePlayers()) {
-            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString("JoinMessage").replace("%player%",p.getName()).replace("&","§")));
+            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString(message).replace("%player%", p.getName()).replace("&", "§")));
         }
     }
     //退出服务器触发事件
@@ -24,8 +30,14 @@ public class AccessListener implements Listener {
     public void onQuit(PlayerQuitEvent q){
         q.setQuitMessage(null);
         Player p = q.getPlayer();
+        String message = "QuitMessage";
+        if (p.hasPermission("betteraccess.op")) {
+            message = "QuitMessageOP";
+        }else if(p.hasPermission("betteraccess.vip")){
+            message = "QuitMessageVIP";
+        }
         for (Player online : Bukkit.getOnlinePlayers()) {
-            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString("QuitMessage").replace("%player%",p.getName()).replace("&","§")));
+            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString(message).replace("%player%", p.getName()).replace("&", "§")));
         }
     }
 }

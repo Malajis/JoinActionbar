@@ -7,4 +7,12 @@ commands:
   bareload:
     description: "BetterAccess重载命令"
     permission: betteraccess.bareload
+permissions:
+  betteraccess.op:
+    default: false
+    description: "OP进服提示"
+  betteraccess.vip:
+    default: false
+    description: "VIP进服提示"
+
 
