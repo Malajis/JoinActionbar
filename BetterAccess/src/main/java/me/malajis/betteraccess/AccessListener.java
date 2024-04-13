@@ -10,24 +10,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class AccessListener implements Listener {
+    //进入服务器触发事件
     @EventHandler
     public void onJoin(PlayerJoinEvent j) {
-        Player p = j.getPlayer();
-        String name = p.getName();
         j.setJoinMessage(null);
-        String msg = Main.onEnable.getConfig().getString("JoinMessage");
-        for (Player playeronline : Bukkit.getOnlinePlayers()) {
-            playeronline.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(msg.replace("%player%",name).replace("&","§")));
+        Player p = j.getPlayer();
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString("JoinMessage").replace("%player%",p.getName()).replace("&","§")));
         }
     }
+    //退出服务器触发事件
     @EventHandler
     public void onQuit(PlayerQuitEvent q){
-        Player p = q.getPlayer();
-        String name = p.getName();
         q.setQuitMessage(null);
-        String msg = Main.onEnable.getConfig().getString("QuitMessage");
-        for (Player playeronline : Bukkit.getOnlinePlayers()) {
-            playeronline.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(msg.replace("%player%",name).replace("&","§")));
+        Player p = q.getPlayer();
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString("QuitMessage").replace("%player%",p.getName()).replace("&","§")));
         }
     }
 }
