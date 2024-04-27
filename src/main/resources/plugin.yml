@@ -1,0 +1,18 @@
+name: BetterAccess
+version: '${project.version}'
+main: me.malajis.betteraccess.Main
+api-version: '1.13'
+author: Malajis
+commands:
+  bareload:
+    description: "BetterAccess重载命令"
+    permission: betteraccess.bareload
+permissions:
+  betteraccess.op:
+    default: false
+    description: "OP进服提示"
+  betteraccess.vip:
+    default: false
+    description: "VIP进服提示"
+
+
