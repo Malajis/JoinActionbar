@@ -9,6 +9,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.util.Objects;
+
 public class AccessListener implements Listener {
     //进入服务器触发事件
     @EventHandler
@@ -22,7 +24,7 @@ public class AccessListener implements Listener {
             message = "JoinMessageVIP";
         }
         for (Player online : Bukkit.getOnlinePlayers()) {
-            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString(message).replace("%player%", p.getName()).replace("&", "§")));
+            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Objects.requireNonNull(Main.onEnable.getConfig().getString(message)).replace("%player%", p.getName()).replace("&", "§")));
         }
     }
     //退出服务器触发事件
@@ -37,7 +39,7 @@ public class AccessListener implements Listener {
             message = "QuitMessageVIP";
         }
         for (Player online : Bukkit.getOnlinePlayers()) {
-            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.onEnable.getConfig().getString(message).replace("%player%", p.getName()).replace("&", "§")));
+            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Objects.requireNonNull(Main.onEnable.getConfig().getString(message)).replace("%player%", p.getName()).replace("&", "§")));
         }
     }
 }
