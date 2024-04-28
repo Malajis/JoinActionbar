@@ -3,6 +3,8 @@ package me.malajis.betteraccess;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public final class Main extends JavaPlugin {
     static Main onEnable;
     @Override
@@ -14,7 +16,7 @@ public final class Main extends JavaPlugin {
         //注册事件监听器
         Bukkit.getPluginManager().registerEvents(new AccessListener(),this);
         //注册命令类
-        Bukkit.getPluginCommand("bareload").setExecutor(new Command());
+        Objects.requireNonNull(Bukkit.getPluginCommand("bareload")).setExecutor(new Command());
         //生成配置文件
         saveDefaultConfig();
         onEnable=this;
