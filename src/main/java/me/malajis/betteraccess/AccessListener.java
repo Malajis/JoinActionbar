@@ -26,9 +26,7 @@ public class AccessListener implements Listener {
             message = "JoinMessageVIP";
         }
         //给所有在线玩家发送提示
-        for (Player online : Bukkit.getOnlinePlayers()) {
-            online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Objects.requireNonNull(Main.onEnable.getConfig().getString(message)).replace("%player%", p.getName()).replace("&", "§")));
-        }
+        sendActionbar(message,p);
     }
     //退出服务器触发事件
     @EventHandler
@@ -44,6 +42,9 @@ public class AccessListener implements Listener {
             message = "QuitMessageVIP";
         }
         //给所有在线玩家发送提示
+        sendActionbar(message,p);
+    }
+    public void sendActionbar(String message,Player p){
         for (Player online : Bukkit.getOnlinePlayers()) {
             online.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Objects.requireNonNull(Main.onEnable.getConfig().getString(message)).replace("%player%", p.getName()).replace("&", "§")));
         }
