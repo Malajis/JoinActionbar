@@ -7,4 +7,4 @@
 #### 功能说明
 1. 可以自由修改不同权限玩家进出入服务器的提示信息并以Actionbar栏呈现
 #### 插件介绍帖
-https://www.minebbs.com/resources/betteraccess-actionbar.7894/
+https://klpbbs.com/thread-149692-1-1.html
