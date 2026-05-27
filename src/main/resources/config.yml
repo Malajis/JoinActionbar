@@ -1,11 +1,25 @@
-#当一个玩家进入服务器后所有玩家收到的消息-actionbar
-JoinMessage: "&b欢迎玩家 &e%player% &b加入测试子服"
-JoinMessageOP: "&6欢迎管理员 &c%player% &6加入测试子服"
-JoinMessageVIP: "&d欢迎VIP &e%player% &d加入测试子服"
-#当一个玩家退出服务器后所有玩家收到的消息-actionbar
-QuitMessage: "&c玩家 &e%player% &c离开了测试子服"
-QuitMessageOP: "&c管理员 &e%player% &c离开了测试子服"
-QuitMessageVIP: "&cVIP &e%player% &c离开了测试子服"
-#重载返回
+# 自定义权限组配置
+# 每个权限组需要配置:
+#   permission: 权限节点 (默认组不需要此字段)
+#   priority: 优先级 (数值越大越高, 同时拥有多个权限时按优先级匹配)
+#   join: 进服提示文本 (%player% 为玩家名占位符, & 为颜色代码)
+#   quit: 退服提示文本
+# 默认组不需要permission, 任何不匹配其他组的玩家都会使用默认组
+Groups:
+  op:
+    permission: "joinactionbar.op"
+    priority: 3
+    join: "&6欢迎管理员 &c%player% &6加入测试子服"
+    quit: "&c管理员 &e%player% &c离开了测试子服"
+  vip:
+    permission: "joinactionbar.vip"
+    priority: 2
+    join: "&d欢迎VIP &e%player% &d加入测试子服"
+    quit: "&cVIP &e%player% &c离开了测试子服"
+  default:
+    priority: 1
+    join: "&b欢迎玩家 &e%player% &b加入测试子服"
+    quit: "&c玩家 &e%player% &c离开了测试子服"
+# 重载返回
 Message:
-  reload: "&aBetterAccess 重载完成"
+  reload: "&aJoinActionbar 重载完成"

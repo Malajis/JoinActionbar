@@ -1,18 +1,19 @@
-name: BetterAccess
+name: JoinActionbar
 version: '${project.version}'
-main: me.malajis.betteraccess.Main
+main: me.malajis.joinactionbar.Main
 api-version: '1.13'
 author: Malajis
 commands:
-  bareload:
-    description: "BetterAccess重载命令"
-    permission: betteraccess.bareload
+  jareload:
+    description: "JoinActionbar重载命令"
+    permission: joinactionbar.jareload
 permissions:
-  betteraccess.op:
+  joinactionbar.jareload:
+    default: op
+    description: "重载JoinActionbar配置"
+  joinactionbar.op:
     default: false
-    description: "OP进服提示"
-  betteraccess.vip:
+    description: "OP管理员进服/退服提示 (可在config.yml中自定义权限组)"
+  joinactionbar.vip:
     default: false
-    description: "VIP进服提示"
-
-
+    description: "VIP进服/退服提示 (可在config.yml中自定义权限组)"
